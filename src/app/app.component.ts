@@ -21,17 +21,11 @@ import { Component } from '@angular/core';
         </div>
       </nav>
       <div class="container">
+        <h1 class="text-center pageTitle">Take a look to a bright future.</h1><br>
         <router-outlet></router-outlet>
       </div>
     </div>
-  `,
-  styles: [`.home-image {
-    width: 40px;
-    height: 40px;
-    margin: 5px;
-    display: inline-block;
-    float: left;
-  }`]
+  `
 })
 export class AppComponent {
   title = 'app';
