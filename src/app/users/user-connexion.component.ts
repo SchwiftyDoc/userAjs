@@ -10,13 +10,24 @@ export class UserConnexionComponent implements OnInit {
 
   username: string;
   password: string;
+  data: boolean = false;
+  info: IInfo;
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log(this.info);
+  }
 
   connexion(): void {
-    console.log('User: ' + this.username + '\nPassword: ' + this.password);
+    this.info = {
+      message: 'The username and the password don\'t match.',
+      important: 'Database: ',
+      type: 'error',
+      delay: 4000,
+      dismissable: true
+    };
+    this.data = !this.data;
   }
 
 }

@@ -1,3 +1,5 @@
+<app-info *ngIf='data' [info]='info'></app-info>
+<app-info *ngIf='facebook' [info]='info'></app-info>
 <div class="col-md-6 col-md-offset-3">
   <div class="panel panel-success">
     <div class="panel-heading">
@@ -26,7 +28,9 @@
         </div>
         <hr>
         <div class="text-center">
-          <img src="http://5.196.89.92/facebook.png" style="cursor: pointer" />
+          <a (click)='facebookClick()'>
+            <img src="http://5.196.89.92/facebook.png" style="cursor: pointer" />
+          </a>
         </div>
       </div>
       <div class="panel-footer" style="line-height: 40px;">

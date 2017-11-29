@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IInfo } from '../shared/info';
 
 @Component({
   selector: 'app-user-inscription',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserInscriptionComponent implements OnInit {
 
+  info: IInfo;
   username: string;
   password: string;
   email: string;
+  data: boolean = false;
+  facebook: boolean = false;
 
   constructor() { }
 
@@ -17,7 +21,25 @@ export class UserInscriptionComponent implements OnInit {
   }
 
   inscription(): void {
-    console.log('User: ' + this.username + '\nPassword: ' + this.password + '\nEmail: ' + this.email);
+    this.info = {
+      message: 'Error during connection to the database. Please contact administrator.',
+      important: 'Database: ',
+      type: 'error',
+      delay: 4000,
+      dismissable: true
+    };
+    this.data = !this.data;
+  }
+
+  facebookClick(): void {
+    this.info = {
+      message: 'Subscribing with your facebook account is not yet available .',
+      important: 'Feature: ',
+      type: 'warning',
+      delay: 4000,
+      dismissable: true
+    };
+    this.facebook = !this.facebook;
   }
 
 }
