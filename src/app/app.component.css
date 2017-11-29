@@ -1,0 +1,19 @@
+body {
+  background: url('http://5.196.89.92/wallpaper.jpg') no-repeat;
+  background-position: left top -371px;
+  background-color: #1B2F4A;
+}
+
+.home-image {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  display: inline-block;
+  float: left;
+}
+
+.pageTitle {
+  text-shadow:0 0 3px #FFFF00;
+  font-weight: bold;
+  color:white;
+}

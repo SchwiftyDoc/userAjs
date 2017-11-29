@@ -1,0 +1,10 @@
+.alert {
+  position: fixed!important;
+  min-width: 400px;
+  top: 5px;
+  left: 50%;
+}
+
+.alert a {
+  margin-left: 20px;
+}
