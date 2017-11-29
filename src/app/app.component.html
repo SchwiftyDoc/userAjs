@@ -16,6 +16,7 @@
     </div>
   </nav>
   <div class="container">
+    <app-info *ngIf='info' [info]='info'></app-info>
     <h1 class="text-center pageTitle">Take a look at a bright future.</h1><br>
     <router-outlet></router-outlet>
   </div>

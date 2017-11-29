@@ -10,12 +10,6 @@ export class UserConnexionComponent implements OnInit {
 
   username: string;
   password: string;
-  info: IInfo = {
-    message: 'Bienvenue sur le site. Nous vous souhaitons une bonne visite',
-    important: 'Projet Aubergine:',
-    type: 'info',
-    delay: 3000
-  };
 
   constructor() { }
 
