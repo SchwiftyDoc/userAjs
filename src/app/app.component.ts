@@ -10,6 +10,10 @@ import { Component } from '@angular/core';
           <a class="navbar-brand">
             Projet Aubergine
           </a>
+          <ul class="nav navbar-nav navbar-left">
+            <li><a [routerLink]="['/home']">Home</a></li>
+            <li><a [routerLink]="['/contact']">Contact</a></li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a [routerLink]="['/connexion']">Sign in</a></li>
             <li><a [routerLink]="['/inscription']">Sign up</a></li>
