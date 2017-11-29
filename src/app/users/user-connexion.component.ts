@@ -13,7 +13,7 @@ export class UserConnexionComponent implements OnInit {
   info: IInfo = {
     message: 'Bienvenue sur le site. Nous vous souhaitons une bonne visite',
     important: 'Projet Aubergine:',
-    type: 'success',
+    type: 'info',
     delay: 3000
   };
 
