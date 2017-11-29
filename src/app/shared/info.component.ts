@@ -11,6 +11,7 @@ export class InfoComponent implements OnInit, AfterViewInit {
   @Input() info: IInfo;
   type: string;
   div: HTMLElement;
+  closed: boolean = false;
 
   constructor(private _elemRef: ElementRef) { }
 
@@ -20,10 +21,19 @@ export class InfoComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    const a = this.div.getElementsByTagName('a')[0];
     const minus = -1 * this.div.offsetWidth / 2;
     this.div.style.marginLeft = minus + 'px';
-    const a = this.div.getElementsByTagName('a')[0];
-    setTimeout(() => a.click(), this.info.delay);
+    setTimeout(() => {
+      if (!this.closed) {
+        a.click();
+      }
+    }, this.info.delay);
+  }
+
+  clicked(): void {
+    this.closed = true;
+
   }
 
 }

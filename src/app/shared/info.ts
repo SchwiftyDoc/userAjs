@@ -3,4 +3,5 @@ export interface IInfo {
   important: string;
   type: 'info' | 'error' | 'warning' | 'success';
   delay: number;
+  dismissable: boolean;
 }

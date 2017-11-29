@@ -8,9 +8,10 @@ import { IInfo } from './shared/info';
 })
 export class AppComponent {
   info: IInfo = {
-    message: 'Bienvenue sur le site. Nous vous souhaitons une bonne visite',
+    message: 'Bienvenue sur le site. Nous vous souhaitons une bonne visite.',
     important: 'Projet Aubergine:',
     type: 'info',
-    delay: 3000
+    delay: 5000,
+    dismissable: true
   };
 }

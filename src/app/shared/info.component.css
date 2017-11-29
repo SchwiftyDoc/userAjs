@@ -3,8 +3,13 @@
   min-width: 400px;
   top: 5px;
   left: 50%;
+  z-index: 1000;
 }
 
-.alert a {
+.alert .dismissable {
   margin-left: 20px;
+}
+
+.alert .notDismissable {
+  display: none;
 }
