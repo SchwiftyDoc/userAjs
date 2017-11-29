@@ -12,8 +12,7 @@ export class UserConnexionComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   connexion(): void {
     console.log('User: ' + this.username + '\nPassword: ' + this.password);

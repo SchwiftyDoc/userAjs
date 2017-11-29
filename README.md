@@ -1,5 +1,6 @@
 # User
 
+UserAJS - Implémentation d'un SPA avec Angular pour voir comment faire fonctionner un système de connexion/inscription avec une API<br/>
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.6.
 
 ## Development server
