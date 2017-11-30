@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+html, body{
+  height: 100%;
+}
+
 body {
-  background: url('http://5.196.89.92/wallpaper.jpg') no-repeat;
-  background-position: left top -371px;
+  background: url('http://5.196.89.92/wallpaper.jpg');
+  background-repeat: no-repeat;
+  background-position: bottom left;
   background-color: #1B2F4A;
+  background-size: cover;
 }
