@@ -5,16 +5,20 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { UsersModule } from './users/users.module';
 import { SharedModule } from './shared/shared.module';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     UsersModule,
     RouterModule.forRoot([
-      { path: '', pathMatch: 'full', redirectTo: 'connexion'}
+      { path: 'home', component: WelcomeComponent},
+      { path: '', pathMatch: 'full', redirectTo: 'home'},
+      { path: '**', pathMatch: 'full', redirectTo: 'home' }
     ]),
     SharedModule
   ],
