@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { UserConnexionComponent } from './user-connexion.component';
 import { UserInscriptionComponent } from './user-inscription.component';
+import { UserService } from './user.service';
 
 @NgModule({
   imports: [
@@ -19,6 +20,8 @@ import { UserInscriptionComponent } from './user-inscription.component';
   ],
   declarations: [
     UserConnexionComponent,
-    UserInscriptionComponent]
+    UserInscriptionComponent
+  ],
+  providers: [UserService]
 })
 export class UsersModule { }
