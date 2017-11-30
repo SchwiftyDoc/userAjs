@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IInfo } from '../shared/info';
+import {UserService} from './user.service';
+import {User} from './user';
 
 @Component({
   selector: 'app-user-inscription',
@@ -9,26 +11,32 @@ import { IInfo } from '../shared/info';
 export class UserInscriptionComponent implements OnInit {
 
   info: IInfo;
+  user: User;
   username: string;
   password: string;
   email: string;
   data: boolean = false;
   facebook: boolean = false;
 
-  constructor() { }
+  constructor(private _userService: UserService) { }
 
   ngOnInit() {
   }
 
-  inscription(): void {
-    this.info = {
-      message: 'Error during connection to the database. Please contact administrator.',
-      important: 'Database: ',
-      type: 'error',
-      delay: 4000,
-      dismissable: true
-    };
-    this.data = !this.data;
+  singUp(): void {
+    this.user = new User({
+      username: this.username,
+      password: this.password,
+      email: this.email
+    });
+    this._userService.singUp(this.user)
+      .subscribe(res => {
+        if (res.__v === 0) {
+          this.user = res.user[0];
+        } else {
+
+        }
+      });
   }
 
   facebookClick(): void {

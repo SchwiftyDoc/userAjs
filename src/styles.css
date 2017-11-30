@@ -3,10 +3,17 @@ html, body{
   height: 100%;
 }
 
+@media screen and (max-height: 799px) {
+  body {
+    background-position: top center!important;
+    background-size: auto!important;
+  }
+}
+
 body {
   background: url('http://5.196.89.92/wallpaper.jpg');
   background-repeat: no-repeat;
-  background-position: bottom left;
+  background-position: bottom center;
   background-color: #1B2F4A;
   background-size: cover;
 }
