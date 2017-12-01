@@ -59,6 +59,5 @@ export class UserInscriptionComponent implements OnInit {
   alertFinished(): void {
     this.alert = false;
     this.info = null;
-    console.log('Alert finished');
   }
 }

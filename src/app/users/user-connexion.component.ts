@@ -12,14 +12,10 @@ export class UserConnexionComponent implements OnInit {
 
   // Models
   user: User;
+  info: Info;
 
   // Alerts
-  error: boolean = false;
-  get info() { return this.info; }
-  set info(info: Info){
-    this.info = info;
-    this.error = true;
-  }
+  alert: boolean = false;
 
   // Forms
   username: string;
@@ -27,9 +23,7 @@ export class UserConnexionComponent implements OnInit {
 
   constructor(private _userService: UserService) { }
 
-  ngOnInit() {
-    console.log(this.info);
-  }
+  ngOnInit() { }
 
   connexion(): void {
     this.user = new User({
@@ -47,13 +41,14 @@ export class UserConnexionComponent implements OnInit {
             dismissable: false,
             type: 'success'
           });
+          this.alert = true;
         }
       });
   }
 
-  infoFinish(event) {
-    console.log('debug');
-    if (event) { this.info = null; }
+  alertFinish(event) {
+    this.info = null;
+    this.alert = false;
   }
 
 }
