@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IInfo } from '../shared/info';
 import { UserService } from './user.service';
+import { Info } from '../shared/info';
 import { User } from './user';
 
 @Component({
@@ -12,14 +12,18 @@ export class UserConnexionComponent implements OnInit {
 
   // Models
   user: User;
-  info: IInfo;
+
+  // Alerts
+  error: boolean = false;
+  get info() { return this.info; }
+  set info(info: Info){
+    this.info = info;
+    this.error = true;
+  }
 
   // Forms
   username: string;
   password: string;
-
-  // Alerts
-  data: boolean = false;
 
   constructor(private _userService: UserService) { }
 
@@ -37,16 +41,19 @@ export class UserConnexionComponent implements OnInit {
       .subscribe(res => {
         this.user = res;
         if (this.user._id) {
-          this.info = {
+          this.info = new Info({
             message: 'You are now connected on the website',
             important: 'Welcome ' + this.user._id + ': ',
-            delay: 4000,
             dismissable: false,
             type: 'success'
-          };
-          this.data = true;
+          });
         }
       });
+  }
+
+  infoFinish(event) {
+    console.log('debug');
+    if (event) { this.info = null; }
   }
 
 }

@@ -1,5 +1,5 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit} from '@angular/core';
-import {IInfo} from './info';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {Info} from './info';
 
 @Component({
   selector: 'app-info',
@@ -8,7 +8,9 @@ import {IInfo} from './info';
 })
 export class InfoComponent implements OnInit, AfterViewInit {
 
-  @Input() info: IInfo;
+  @Input() info: Info;
+  @Output() finished: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   type: string;
   div: HTMLElement;
   closed: boolean = false;
@@ -32,8 +34,8 @@ export class InfoComponent implements OnInit, AfterViewInit {
   }
 
   clicked(): void {
+    this.finished.emit(true);
     this.closed = true;
-
   }
 
 }

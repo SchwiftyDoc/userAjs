@@ -11,7 +11,7 @@ html, body{
 }
 
 body {
-  background: url('http://5.196.89.92/wallpaper.jpg');
+  background: url('./assets/wallpaper.jpg');
   background-repeat: no-repeat;
   background-position: bottom center;
   background-color: #1B2F4A;

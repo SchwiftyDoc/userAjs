@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IInfo } from './shared/info';
+import { Info } from './shared/info';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +7,9 @@ import { IInfo } from './shared/info';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  info: IInfo = {
+  info = new Info({
     message: 'Welcome on our website. Enjoy your visit!',
     important: 'Projet Aubergine:',
     type: 'info',
-    delay: 4000,
-    dismissable: true
-  };
+  });
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IInfo } from '../shared/info';
+import { Info } from '../shared/info';
 import { UserService } from './user.service';
 import { User } from './user';
 
@@ -12,7 +12,7 @@ import { User } from './user';
 export class UserInscriptionComponent implements OnInit {
 
   // Models
-  info: IInfo;
+  info: Info;
   user: User;
 
   // Form
@@ -44,26 +44,22 @@ export class UserInscriptionComponent implements OnInit {
       .subscribe(res => {
         this.user = res;
         if (this.user._id) {
-          this.info = {
+          this.info = new Info({
             message: 'everything went well, check your emails for validation.',
             important: 'Subscription: ',
             type: 'success',
-            delay: 4000,
-            dismissable: false
-          };
+          })
           this.data = true;
         }
       });
   }
 
   facebookClick(): void {
-    this.info = {
+    this.info = new Info({
       message: 'Subscribing with your facebook account is not yet available .',
       important: 'Feature: ',
       type: 'warning',
-      delay: 4000,
-      dismissable: true
-    };
+    });
     this.facebook = !this.facebook;
   }
 
