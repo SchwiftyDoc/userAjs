@@ -21,17 +21,11 @@ export class UserInscriptionComponent implements OnInit {
   email: string;
 
   // Alerts
-  data: boolean = false;
-  facebook: boolean = false;
+  alert: boolean = false;
 
   constructor(private _userService: UserService) { }
 
-  ngOnInit() {
-    this._userService.getUsers()
-      .subscribe(res => {
-        console.log(res);
-      });
-  }
+  ngOnInit() { }
 
   signUp(): void {
     this.user = new User({
@@ -39,7 +33,6 @@ export class UserInscriptionComponent implements OnInit {
       password: this.password,
       email: this.email
     });
-    console.log(this.user);
     this._userService.signUp(this.user)
       .subscribe(res => {
         this.user = res;
@@ -48,8 +41,8 @@ export class UserInscriptionComponent implements OnInit {
             message: 'everything went well, check your emails for validation.',
             important: 'Subscription: ',
             type: 'success',
-          })
-          this.data = true;
+          });
+          this.alert = true;
         }
       });
   }
@@ -60,7 +53,12 @@ export class UserInscriptionComponent implements OnInit {
       important: 'Feature: ',
       type: 'warning',
     });
-    this.facebook = !this.facebook;
+    this.alert = true;
   }
 
+  alertFinished(): void {
+    this.alert = false;
+    this.info = null;
+    console.log('Alert finished');
+  }
 }
