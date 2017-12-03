@@ -3,7 +3,7 @@ export class User {
   username: string;
   password: string;
   email: string;
-  status: 'admin' | 'user' | 'seller' = 'user';
+  status: 'admin' | 'user' | 'seller';
   created: Date;
 
   constructor(values: Object = {}) {

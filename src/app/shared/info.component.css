@@ -6,6 +6,14 @@
   z-index: 1000;
 }
 
+strong.inline {
+  vertical-align: top;
+}
+
+p.inline {
+  display:inline-block;
+}
+
 .alert .dismissable {
   margin-left: 15px;
 }

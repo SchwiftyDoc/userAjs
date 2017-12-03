@@ -1,4 +1,4 @@
 <div class="alert alert-{{ type }} fade in" n>
   <a href="#" (click)='clicked()' class="close {{ (info.dismissable) ? 'dismissable' : 'notDismissable' }}" data-dismiss="alert" aria-label="close">&times;</a>
-  <strong>{{ info.important }}</strong> {{ info.message }}
+  <strong [class]='inline'>{{ info.important }}</strong><br *ngIf='!info.inline'><br *ngIf='!info.inline'> <p [class]='inline' [innerHTML]='info.message'></p>
 </div>

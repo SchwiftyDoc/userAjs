@@ -12,10 +12,7 @@ export class UserConnexionComponent implements OnInit {
 
   // Models
   user: User;
-  info: Info;
-
-  // Alerts
-  alert: boolean = false;
+  info: Info = null;
 
   // Forms
   username: string;
@@ -34,21 +31,25 @@ export class UserConnexionComponent implements OnInit {
     this._userService.signIn(this.user)
       .subscribe(res => {
         this.user = res;
-        if (this.user._id) {
+        console.log('debug');
+        if (res._id) {
           this.info = new Info({
-            message: 'You are now connected on the website',
-            important: 'Welcome ' + this.user._id + ': ',
+            important: 'Connection:',
+            message: 'Welcome back ' + res.username + '.',
             dismissable: false,
-            type: 'success'
+            type: 'info'
           });
-          this.alert = true;
+        } else {
+          this.info = new Info({
+            important: 'Connection:',
+            message: 'User and password don\'t match.',
+          });
         }
       });
   }
 
   alertFinish(event) {
     this.info = null;
-    this.alert = false;
   }
 
 }

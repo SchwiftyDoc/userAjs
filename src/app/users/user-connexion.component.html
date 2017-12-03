@@ -1,4 +1,4 @@
-<app-info *ngIf='data' [info]='info' (finished)='alertFinish()'></app-info>
+<app-info *ngIf='info' [info]='info' (finished)='alertFinish()'></app-info>
 <div class="col-md-6 col-md-offset-3">
   <div class="panel panel-primary">
     <form class="form-horizontal"
@@ -23,7 +23,7 @@
           <button type="submit" class="btn btn-primary">
             Sign in <i class="glyphicon glyphicon-chevron-right"></i>
           </button>
-          <button class="btn btn-default">
+          <button class="btn btn-default" [routerLink]="['/home']">
             Cancel
           </button>
         </div>

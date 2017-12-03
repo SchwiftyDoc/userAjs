@@ -29,15 +29,38 @@ export class UserService {
   signIn(user: User): Observable<User> {
     return this._http
       .post(this.API_URL + '/signin', user)
-      .map(res => new User(res.json()))
+      .map(res => {
+        user = new User(res.json());
+        if (user) {
+          return user;
+        } else {
+          return new Info ({
+            message: res.json().message,
+            important: res.json().name,
+
+          });
+        }
+      })
       .catch(this.handleError);
   }
 
-  signUp(user: User): Observable<User> {
+  signUp(user: User): Observable<any> {
     return this._http
       .post(this.API_URL + '/users', user)
-      .map(response => {
-        return new User(response.json());
+      .map(res => {
+        user = new User(res.json());
+        if (user._id) {
+          return user;
+        } else {
+          const json = res.json();
+          let errors = '<ul>';
+          Object.keys(json.errors).forEach((err) => errors += '<li>' + json.errors[err].message + '</li>');
+          return new Info({
+            important: json.name,
+            message: errors + '</ul>',
+            inline: false
+          });
+        }
       })
       .catch(this.handleError);
   }

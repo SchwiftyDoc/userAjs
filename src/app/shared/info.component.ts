@@ -12,6 +12,7 @@ export class InfoComponent implements OnInit, AfterViewInit {
   @Output() finished: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   type: string;
+  inline: string;
   div: HTMLElement;
   closed: boolean = false;
 
@@ -20,6 +21,7 @@ export class InfoComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.type = (this.info.type !== 'error') ? this.info.type : 'danger';
     this.div = this._elemRef.nativeElement.firstChild;
+    this.inline = (this.info.inline) ? 'inline' : '';
   }
 
   ngAfterViewInit() {
