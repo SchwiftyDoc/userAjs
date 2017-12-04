@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from './user.service';
 import { Info } from '../shared/info';
 import { User } from './user';
@@ -8,9 +8,7 @@ import { User } from './user';
   templateUrl: './user-connexion.component.html',
   styleUrls: ['./user-connexion.component.css'],
 })
-export class UserConnexionComponent implements OnInit, AfterViewInit {
-
-  @ViewChild('myAutofocus') _autoFocus: ElementRef;
+export class UserConnexionComponent implements OnInit {
 
   // Models
   user: User;
@@ -23,10 +21,6 @@ export class UserConnexionComponent implements OnInit, AfterViewInit {
   constructor(private _userService: UserService) { }
 
   ngOnInit() { }
-
-  ngAfterViewInit() {
-    this._autoFocus.nativeElement.focus();
-  }
 
   connexion(): void {
     this.user = new User({
