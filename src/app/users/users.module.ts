@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 
+import { UserValidatorComponent } from './user-validator.component';
 import { UserConnexionComponent } from './user-connexion.component';
 import { UserInscriptionComponent } from './user-inscription.component';
 import { UserService } from './user.service';
@@ -19,6 +20,7 @@ import { UserService } from './user.service';
     ])
   ],
   declarations: [
+    UserValidatorComponent,
     UserConnexionComponent,
     UserInscriptionComponent
   ],

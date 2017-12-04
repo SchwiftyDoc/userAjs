@@ -19,6 +19,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     UsersModule,
     RouterModule.forRoot([
       { path: 'home', component: WelcomeComponent},
+      { path: 'validate', pathMatch: 'full', redirectTo: 'home'},
       { path: '', pathMatch: 'full', redirectTo: 'home'},
       { path: '**', pathMatch: 'full', redirectTo: 'home' }
     ]),

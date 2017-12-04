@@ -65,6 +65,27 @@ export class UserService {
       .catch(this.handleError);
   }
 
+  validate(user: User): Observable<Info> {
+    return this._http
+      .get(this.API_URL + '/validate/' + user.username + '/' + user._id)
+      .map(res => {
+        const json = res.json();
+        if (json.ok) {
+          return new Info({
+            important: 'EmailValidator',
+            message: 'Email has been validated successfully.',
+            type: 'success'
+          });
+        } else {
+          return new Info({
+            important: 'EmailValidator',
+            message: 'There is no validation corresponding with this link.'
+          });
+        }
+      })
+      .catch(this.handleError);
+  }
+
   handleError(err: Response | any) {
     return Observable.throw(err.message);
   }

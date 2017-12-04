@@ -31,7 +31,6 @@ export class UserConnexionComponent implements OnInit {
     this._userService.signIn(this.user)
       .subscribe(res => {
         this.user = res;
-        console.log('debug');
         if (res._id) {
           this.info = new Info({
             important: 'Connection:',
@@ -42,7 +41,7 @@ export class UserConnexionComponent implements OnInit {
         } else {
           this.info = new Info({
             important: 'Connection:',
-            message: 'User and password don\'t match.',
+            message: 'User and password don\'t match or validate your email address.',
           });
         }
       });
