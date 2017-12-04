@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { Info } from '../shared/info';
 import { UserService } from './user.service';
 import { User } from './user';
@@ -9,7 +9,9 @@ import { User } from './user';
   styleUrls: ['./user-inscription.component.css'],
   providers: [UserService]
 })
-export class UserInscriptionComponent implements OnInit {
+export class UserInscriptionComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('myAutofocus') private _focusElement: ElementRef;
 
   // Models
   info: Info;
@@ -23,6 +25,10 @@ export class UserInscriptionComponent implements OnInit {
   constructor(private _userService: UserService) { }
 
   ngOnInit() { }
+
+  ngAfterViewInit() {
+    this._focusElement.nativeElement.focus();
+  }
 
   signUp(): void {
     this.user = new User({

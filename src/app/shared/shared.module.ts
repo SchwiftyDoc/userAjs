@@ -5,11 +5,11 @@ import { Info } from './info';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   declarations: [InfoComponent],
   exports: [
-    InfoComponent
+    InfoComponent,
   ]
 })
 export class SharedModule { }
