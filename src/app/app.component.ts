@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Info } from './shared/info';
+import { Info } from './shared/info/info';
 
 @Component({
   selector: 'app-root',
