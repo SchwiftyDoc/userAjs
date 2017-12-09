@@ -30,18 +30,23 @@ export class UserService {
     return this._http
       .post(this.API_URL + '/signin', user)
       .map(res => {
-        user = new User(res.json());
+        const json = res.json();
+        user = new User(json);
         if (user) {
+          localStorage.setItem('user', json);
           return user;
         } else {
           return new Info ({
             message: res.json().message,
             important: res.json().name,
-
           });
         }
       })
       .catch(this.handleError);
+  }
+
+  signOut(): void {
+    localStorage.removeItem('user');
   }
 
   signUp(user: User): Observable<any> {

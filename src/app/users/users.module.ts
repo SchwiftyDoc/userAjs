@@ -4,9 +4,9 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 
-import { UserValidatorComponent } from './user-validator.component';
-import { UserConnexionComponent } from './user-connexion.component';
-import { UserInscriptionComponent } from './user-inscription.component';
+import { UserValidatorComponent } from './validator/user-validator.component';
+import { UserConnexionComponent } from './connexion/user-connexion.component';
+import { UserInscriptionComponent } from './inscription/user-inscription.component';
 import { UserService } from './user.service';
 
 @NgModule({
@@ -15,6 +15,7 @@ import { UserService } from './user.service';
     FormsModule,
     SharedModule,
     RouterModule.forChild([
+      { path: 'validate', component: UserValidatorComponent},
       { path: 'connexion', component: UserConnexionComponent},
       { path: 'inscription', component: UserInscriptionComponent}
     ])

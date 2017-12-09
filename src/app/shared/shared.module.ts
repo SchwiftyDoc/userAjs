@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InfoComponent } from './info/info.component';
+
 import { Info } from './info/info';
+import { Confirm } from './confirm/confirm';
+
 import { MyAutofocusDirective } from './my-autofocus.directive';
+
+import { InfoComponent } from './info/info.component';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 @NgModule({
   imports: [
@@ -10,10 +15,12 @@ import { MyAutofocusDirective } from './my-autofocus.directive';
   ],
   declarations: [
     InfoComponent,
-    MyAutofocusDirective
+    MyAutofocusDirective,
+    ConfirmComponent
   ],
   exports: [
     InfoComponent,
+    ConfirmComponent,
     MyAutofocusDirective
   ]
 })

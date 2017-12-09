@@ -1,7 +1,9 @@
 import { Component, OnInit} from '@angular/core';
-import { Info } from '../shared/info/info';
-import { UserService } from './user.service';
-import { User } from './user';
+import { UserService } from '../user.service';
+
+import { User } from '../user';
+import { Info } from '../../shared/info/info';
+import { Confirm } from '../../shared/confirm/confirm';
 
 @Component({
   selector: 'app-user-inscription',
@@ -36,7 +38,7 @@ export class UserInscriptionComponent implements OnInit {
           this.user = res;
           this.info = new Info({
             message: 'Everything went well, check your emails for validation.',
-            important: 'Inscription: ',
+            important: 'Inscription:',
             type: 'success'
           });
         } else if (res instanceof Info) {
@@ -48,7 +50,7 @@ export class UserInscriptionComponent implements OnInit {
   facebookClick(): void {
     this.info = new Info({
       message: 'Subscribing with your facebook account is not yet available .',
-      important: 'Feature: ',
+      important: 'Feature:',
       type: 'warning',
     });
   }
@@ -56,4 +58,5 @@ export class UserInscriptionComponent implements OnInit {
   alertFinished(): void {
     this.info = null;
   }
+
 }
