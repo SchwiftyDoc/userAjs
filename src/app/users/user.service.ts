@@ -12,7 +12,7 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class UserService {
 
-  private API_URL = 'http://localhost:3000';
+  private API_URL = 'http://5.196.89.92:3000';
 
   constructor(private _http: Http) { }
 
